@@ -28,9 +28,50 @@ namespace SportsStore.Domain.Concrete
             }
         }
 
+        public Product DeleteProduce(int productId)
+        {
+            try
+            {
+                var product = context.Products.FirstOrDefault(x => x.ProductID == productId);
+                if (product != null)
+                {
+                    context.Products.Remove(product);
+                    context.SaveChanges();
+                    return product;
+                }
+                else
+                    return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public void Dispose()
         {
             context.Dispose();
+        }
+
+        public bool SaveProduct(Product product)
+        {
+            try
+            {
+                if (product.ProductID <= 0)
+                    context.Products.Add(product);
+                else
+                {
+                    var forRefresh = context.Products.Find(product.ProductID);
+                    if (forRefresh != null)
+                        context.Entry(forRefresh).CurrentValues.SetValues(product);
+                }
+                context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

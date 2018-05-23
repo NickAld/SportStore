@@ -8,7 +8,7 @@ namespace SportsStore.Domain.Entities
 {
     public class Cart
     {
-        new List<CartLine> lineCollection = new List<CartLine>();
+        List<CartLine> lineCollection = new List<CartLine>();
         public void AddItem(Product product, int quantity)
         {
             var line = lineCollection.Where(x => x.Product.ProductID == product.ProductID).FirstOrDefault();

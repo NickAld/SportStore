@@ -10,9 +10,10 @@ namespace SportsStore.Domain.Abstract
     using SportsStore.Domain.Entities;
     public interface IProductsRepository
     {
-        
         IQueryable<Product> Products { get; }
-        [Obsolete("Не рекомендуется", true)]
-        IList<Product> ProductsList { get; }
+
+        bool SaveProduct(Product product);
+
+        Product DeleteProduce(int productId);
     }
 }
