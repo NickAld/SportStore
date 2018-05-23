@@ -9,6 +9,7 @@ namespace SportsStore.WebUI.Controllers
     using SportsStore.Domain.Entities;
     using SportsStore.Domain.Abstract;
 
+    [Authorize]
     public class AdminController : Controller
     {
         // GET: Admin

@@ -70,14 +70,17 @@
   <ItemGroup>
     <Compile Include="Abstract\IOrderProcessor.cs" />
     <Compile Include="Abstract\IProductsRepository.cs" />
+    <Compile Include="Abstract\IUserRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFProductRepository.cs" />
+    <Compile Include="Concrete\EFUserRepository.cs" />
     <Compile Include="Concrete\EmailOrderProcessor.cs" />
     <Compile Include="Concrete\EmailSettings.cs" />
     <Compile Include="Entities\Cart.cs" />
     <Compile Include="Entities\CartLine.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\ShippingDetails.cs" />
+    <Compile Include="Entities\Users.cs" />
     <Compile Include="Migrations\201805171232432_Mig1.cs" />
     <Compile Include="Migrations\201805171232432_Mig1.Designer.cs">
       <DependentUpon>201805171232432_Mig1.cs</DependentUpon>
@@ -89,6 +92,26 @@
     <Compile Include="Migrations\201805231242258_Mig3.cs" />
     <Compile Include="Migrations\201805231242258_Mig3.Designer.cs">
       <DependentUpon>201805231242258_Mig3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805231357075_Mig4.cs" />
+    <Compile Include="Migrations\201805231357075_Mig4.Designer.cs">
+      <DependentUpon>201805231357075_Mig4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805231404007_Mig41.cs" />
+    <Compile Include="Migrations\201805231404007_Mig41.Designer.cs">
+      <DependentUpon>201805231404007_Mig41.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805231406166_Mig42.cs" />
+    <Compile Include="Migrations\201805231406166_Mig42.Designer.cs">
+      <DependentUpon>201805231406166_Mig42.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805231411315_Mig5.cs" />
+    <Compile Include="Migrations\201805231411315_Mig5.Designer.cs">
+      <DependentUpon>201805231411315_Mig5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805231426436_Mig6.cs" />
+    <Compile Include="Migrations\201805231426436_Mig6.Designer.cs">
+      <DependentUpon>201805231426436_Mig6.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +129,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805231242258_Mig3.resx">
       <DependentUpon>201805231242258_Mig3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805231357075_Mig4.resx">
+      <DependentUpon>201805231357075_Mig4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805231404007_Mig41.resx">
+      <DependentUpon>201805231404007_Mig41.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805231406166_Mig42.resx">
+      <DependentUpon>201805231406166_Mig42.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805231411315_Mig5.resx">
+      <DependentUpon>201805231411315_Mig5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805231426436_Mig6.resx">
+      <DependentUpon>201805231426436_Mig6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

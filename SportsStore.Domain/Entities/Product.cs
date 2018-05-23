@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
+
 namespace SportsStore.Domain.Entities
 {
     public class Product
@@ -12,7 +13,7 @@ namespace SportsStore.Domain.Entities
         [Key]
         [HiddenInput(DisplayValue = false)]
         public int ProductID { get; set; }
-
+        [MinLength(length:3), MaxLength(length:20)]
         [Required(ErrorMessage = "Please enter a product name")]
         public string Name { get; set; }
 
@@ -27,5 +28,11 @@ namespace SportsStore.Domain.Entities
 
         [Required(ErrorMessage = "Please specify a category")]
         public string Category { get; set; }
+
+        public byte[] ImageData { get; set; }
+
+        [MaxLength(length:50)]
+        [HiddenInput(DisplayValue =false)]
+        public string ImageMimeType { get; set; }
     }
 }

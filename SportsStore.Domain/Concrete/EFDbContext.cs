@@ -12,5 +12,6 @@ namespace SportsStore.Domain.Concrete
         public EFDbContext() : base("EFDbContext")
         { }
         public DbSet<Entities.Product> Products { get; set; }
+        public DbSet<Entities.Users> Users { get; set; }
     }
 }
