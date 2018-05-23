@@ -8,7 +8,7 @@
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm("Edit", "Admin"))
+@using (Html.BeginForm("Edit", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -47,6 +47,22 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Category, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="editor-label">Image</div>
+        <div class="editor-field">
+            @if (Model.ImageData == null)
+            {
+                @:None
+            }
+            else
+            {
+                <img width="150" height="150" src="@Url.Action("GetImage", "Product", new { Model.ProductID})"/>
+            }
+            <div>
+                Загрузить новое изображение<br />
+                <input type="file" name="Image"/>
             </div>
         </div>
 
