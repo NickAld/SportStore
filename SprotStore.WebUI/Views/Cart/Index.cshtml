@@ -1,0 +1,69 @@
+﻿@model SportsStore.WebUI.Models.CartIndexViewModel
+
+@{
+    ViewBag.Title = "Корзина SportStore";
+}
+
+<h2>Корзина</h2>
+
+<table width="90%" align="center" border="1">
+    <thead>
+        <tr>
+            <th align="center">
+                Наименование
+            </th>
+            <th align="center" width="120dp">
+                Количество
+            </th>
+            <th align="center">
+                Стоимость <br />за ед.
+            </th>
+            <th align="center" width="190dp">
+                Сумма
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var p in Model.Cart.Lines)
+        {
+        <tr>
+            <td align="left">
+                @p.Product.Name
+            </td>
+            <td align="center">
+                @p.Quantity
+            </td>
+            <td align="center">
+                @p.Product.Price
+            </td>
+            <td align="center">
+                @(p.Product.Price*p.Quantity)
+            </td>
+            <td>
+                @using (Html.BeginForm("RemovefromCart", "Cart"))
+                {
+                    @Html.Hidden("ProductId", p.Product.ProductID)
+                    @Html.HiddenFor(x=>x.ReturnUrl)
+                    <input class="actionButtons" type="submit" value="Удалить" />
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" align="right">
+                        Всего к оплате:
+            </td>
+            <td align="right">
+                        @Model.Cart.ComputeTotalValue()
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+<p class="actionButtons">
+    <a href="@Model.ReturnUrl">Вернутся к товарам</a>
+    @Html.ActionLink("Оформить заказ", "Checkout")
+</p>
+
